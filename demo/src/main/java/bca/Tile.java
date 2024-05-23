@@ -7,6 +7,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 public class Tile extends StackPane {
+    //this is the stackpane
     private static final int tileSize = 40;
     private int row;
     private int col;
