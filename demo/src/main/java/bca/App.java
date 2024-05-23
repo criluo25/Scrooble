@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class App extends Application {
     private static final int boardSize = 15;
     // private static final int tileSize = 
-    // private static final int ghg
+    // private static final int
 
     @Override
     public void start(Stage stage) {
