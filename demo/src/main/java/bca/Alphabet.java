@@ -11,7 +11,7 @@ public class Alphabet {
     // 8 points: J ×1, X ×1
     // 10 points: Q ×1, Z ×1
 
-    private ArrayList<
+    
     
     public Alphabet() {
 
