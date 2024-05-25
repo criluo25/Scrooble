@@ -38,11 +38,6 @@ public class App extends Application {
         stackPane.setAlignment(Pos.CENTER);
         borderPane.setPadding(new Insets(10, 10, 10, 10));
         borderPane.setCenter(stackPane);
-        
-        // borderPane.setPadding(new Insets(30, 30, 60, 30));
-        // gridPane.setHgap(5);
-        // gridPane.setVgap(5);
-        // borderPane.setCenter(gridPane);
 
         Scene scene = new Scene(borderPane, 600, 600);
         stage.setScene(scene);
