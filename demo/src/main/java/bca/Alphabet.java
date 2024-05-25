@@ -18,6 +18,15 @@ public class Alphabet {
 
     }
 
+    public void shuffle() {
+        for (int i = 0; i < letters.size()-1; i++) {
+            int change = (int) (Math.random()*(letters.size()-i)) + i;
+            char temp = letters.get(change);
+            letters.set(change, letters.get(i));
+            letters.set(i, temp);
+        }
+    }
+
     private void fill() {
         add('E', 12);
         add('A', 9);
