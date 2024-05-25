@@ -21,7 +21,7 @@ public class Tile extends StackPane {
         this.letter = new Text();
 
         Rectangle border = new Rectangle(tileSize, tileSize);
-        border.setFill(null);
+        border.setFill(Color.BURLYWOOD);
         border.setStroke(Color.BLACK);
 
         setOnMouseClicked(event -> placeTile('A'));
