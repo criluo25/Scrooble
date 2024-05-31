@@ -34,6 +34,10 @@ public class Alphabet {
         return temp;
     }
 
+    public boolean isEmpty() {
+        return letters.size() == 0;
+    }
+
     private void fill() {
         add('E', 12);
         add('A', 9);
