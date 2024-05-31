@@ -11,11 +11,10 @@ public class Alphabet {
     // 8 points: J ×1, X ×1
     // 10 points: Q ×1, Z ×1
 
-    ArrayList<Character> letters;
+    private ArrayList<Character> letters;
     
     public Alphabet() {
         fill();
-
     }
 
     public void shuffle() {
@@ -25,6 +24,14 @@ public class Alphabet {
             letters.set(change, letters.get(i));
             letters.set(i, temp);
         }
+    }
+
+    public ArrayList<Character> get(int num) {
+        ArrayList<Character> temp = new ArrayList<>();
+        for (int i = 0; i < num; i++) {
+            temp.add(letters.remove(letters.size()-1));
+        }
+        return temp;
     }
 
     private void fill() {
