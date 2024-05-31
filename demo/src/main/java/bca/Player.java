@@ -5,8 +5,8 @@ public class Player {
     private ArrayList<Letter> hand;
     private Alphabet alphabet;
 
-    public Player() {
-        alphabet = Game.getAlphabet();
+    public Player(Game game, Alphabet alph) {
+        alphabet = alph;
         hand = alphabet.get(7);
     }
 

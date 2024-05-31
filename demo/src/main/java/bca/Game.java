@@ -1,10 +1,16 @@
 package bca;
 
 public class Game {
-    private static Alphabet alphabet;
+    private Alphabet alphabet;
     private Player p1, p2;
 
-    public static Alphabet getAlphabet() {
+    public Game() {
+        alphabet = new Alphabet();
+        p1 = new Player(this, alphabet);
+        p2 = new Player(this, alphabet);
+    }
+
+    public Alphabet getAlphabet() {
         return alphabet;
     }
 }
