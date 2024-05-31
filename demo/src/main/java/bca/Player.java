@@ -2,7 +2,7 @@ package bca;
 import java.util.*;
 
 public class Player {
-    private ArrayList<Character> hand;
+    private ArrayList<Letter> hand;
     private Alphabet alphabet;
 
     public Player() {

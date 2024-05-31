@@ -11,7 +11,7 @@ public class Alphabet {
     // 8 points: J ×1, X ×1
     // 10 points: Q ×1, Z ×1
 
-    private ArrayList<Character> letters;
+    private ArrayList<Letter> letters;
     
     public Alphabet() {
         fill();
@@ -20,14 +20,14 @@ public class Alphabet {
     public void shuffle() {
         for (int i = 0; i < letters.size()-1; i++) {
             int change = (int) (Math.random()*(letters.size()-i)) + i;
-            char temp = letters.get(change);
+            Letter temp = letters.get(change);
             letters.set(change, letters.get(i));
             letters.set(i, temp);
         }
     }
 
-    public ArrayList<Character> get(int num) {
-        ArrayList<Character> temp = new ArrayList<>();
+    public ArrayList<Letter> get(int num) {
+        ArrayList<Letter> temp = new ArrayList<>();
         for (int i = 0; i < num; i++) {
             temp.add(letters.remove(letters.size()-1));
         }
@@ -39,35 +39,35 @@ public class Alphabet {
     }
 
     private void fill() {
-        add('E', 12);
-        add('A', 9);
-        add('I', 9);
-        add('O', 8);
-        add('N', 6);
-        add('R', 6);
-        add('T', 6);
-        add('L', 4);
-        add('S', 4);
-        add('U', 4);
-        add('D', 4);
-        add('G', 3);
-        add('B', 2);
-        add('C', 2);
-        add('M', 2);
-        add('P', 2);
-        add('F', 2);
-        add('H', 2);
-        add('V', 2);
-        add('W', 2);
-        add('Y', 2);
-        add('K', 1);
-        add('J', 1);
-        add('X', 1);
-        add('Q', 1);
-        add('Z', 1);
+        add(new Letter(1,'E'), 12);
+        add(new Letter(1,'A'), 9);
+        add(new Letter(1,'I'), 9);
+        add(new Letter(1,'O'), 8);
+        add(new Letter(1,'N'), 6);
+        add(new Letter(1,'R'), 6);
+        add(new Letter(1,'T'), 6);
+        add(new Letter(1,'L'), 4);
+        add(new Letter(1,'S'), 4);
+        add(new Letter(1,'U'), 4);
+        add(new Letter(2,'D'), 4);
+        add(new Letter(2,'G'), 3);
+        add(new Letter(3,'B'), 2);
+        add(new Letter(3,'C'), 2);
+        add(new Letter(3,'M'), 2);
+        add(new Letter(3,'P'), 2);
+        add(new Letter(4,'F'), 2);
+        add(new Letter(4,'H'), 2);
+        add(new Letter(4,'V'), 2);
+        add(new Letter(4,'W'), 2);
+        add(new Letter(4,'Y'), 2);
+        add(new Letter(5,'K'), 1);
+        add(new Letter(8,'J'), 1);
+        add(new Letter(8,'X'), 1);
+        add(new Letter(10,'Q'), 1);
+        add(new Letter(10,'Z'), 1);
     }
 
-    private void add(char c, int n) {
-        for (int i = 0; i < n; i++) letters.add(c);
+    private void add(Letter l, int n) {
+        for (int i = 0; i < n; i++) letters.add(l);
     }
 }
