@@ -14,7 +14,9 @@ public class Alphabet {
     private ArrayList<Letter> letters;
     
     public Alphabet() {
+        letters = new ArrayList<>();
         fill();
+        shuffle();
     }
 
     public void shuffle() {

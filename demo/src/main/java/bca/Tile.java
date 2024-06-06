@@ -11,43 +11,68 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 public class Tile extends StackPane {
-    //this is the stackpane
+    // this is the stackpane
     private static final int tileSize = 40;
     private int row;
     private int col;
     private Text letter;
     private Board board;
     private Label label;
+    private boolean isInLetterRow;
 
-    public Tile (int row, int col, Board board) {
+    public Tile(int row, int col, Board board) {
+        this(row, col, board, false);
+    }
+
+    public Tile(int row, int col, Board board, boolean isInLetterRow) {
         this.row = row;
         this.col = col;
         this.board = board;
         this.letter = new Text();
         this.label = new Label();
-        getChildren().add(label);
-        setStyle("-fx-border-color: black; -fx-background-color: white;");
+        this.isInLetterRow = isInLetterRow;
 
         Rectangle border = new Rectangle(tileSize, tileSize);
         border.setFill(Color.BURLYWOOD);
         border.setStroke(Color.BLACK);
 
-        setOnMouseClicked((MouseEvent event) -> {
-            // Request focus on the tile when it is clicked
-            this.requestFocus();
-        });
+        getChildren().addAll(border, letter, label);
+        setStyle("-fx-border-color: black; -fx-background-color: white;");
 
-        setOnKeyPressed((KeyEvent event) -> {
-            String character = event.getText();
-            if (character.matches("[a-zA-Z]")) {
-                placeTile(character.toUpperCase().charAt(0));
-            }
-        });
-
-        getChildren().addAll(border, letter);
+        if (isInLetterRow) {
+            System.out.println("Letter tile initialized.");
+            this.setOnMouseClicked(this::handleLetterRowClick);
+        } else {
+            this.setOnMouseClicked(this::handleGridClick);
+        }
     }
 
-public void placeTile(char tile) {
-    letter.setText(String.valueOf(tile));
-}
+    private void handleLetterRowClick(MouseEvent event) {
+        System.out.println("Letter tile clicked.");
+        if (!letter.getText().isEmpty()) {
+            App.setSelectedLetter(this);
+        }
+    }
+
+    private void handleGridClick(MouseEvent event) {
+        System.out.println("Grid tile clicked.");
+        if (App.getSelectedLetter() != null) {
+            Tile selectedTile = App.getSelectedLetter();
+            placeTile(selectedTile.getLetter().charAt(0));
+            selectedTile.clearTile();
+            App.setSelectedLetter(null);
+        }
+    }
+
+    public void placeTile(char tile) {
+        letter.setText(String.valueOf(tile));
+    }
+
+    public String getLetter() {
+        return letter.getText();
+    }
+
+    public void clearTile() {
+        letter.setText("");
+    }
 }

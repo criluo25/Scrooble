@@ -12,7 +12,7 @@ public class Letter {
     public int pointValue() {
         return pointValue;
     }
-    public int letter() {
+    public char letter() {
         return letter;
     }
 }
