@@ -1,6 +1,9 @@
 package bca;
 
-public class Letter {
+import java.io.Serializable;
+
+public class Letter implements Serializable {
+    private static final long serialVersionUID = 1L;
     private int pointValue;
     private char letter;
 
@@ -12,6 +15,7 @@ public class Letter {
     public int pointValue() {
         return pointValue;
     }
+    
     public char letter() {
         return letter;
     }

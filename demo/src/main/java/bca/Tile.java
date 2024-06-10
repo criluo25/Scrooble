@@ -1,9 +1,6 @@
 package bca;
 
-import javafx.print.Collation;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;

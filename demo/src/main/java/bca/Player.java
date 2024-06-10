@@ -1,16 +1,20 @@
 package bca;
+import java.io.Serializable;
 import java.util.*;
 
-public class Player {
+public class Player implements Serializable {
     private ArrayList<Letter> hand;
     private Alphabet alphabet;
 
-    public Player(Game game, Alphabet alph) {
-        alphabet = alph;
-        hand = alphabet.get(7);
+    public Player(ArrayList<Letter> letters) {
+        hand = letters;
     }
 
-    public boolean refill() {
+    public ArrayList<Letter> getHand() {
+        return hand;
+    }
+
+    public boolean refill(Alphabet alphabet) {
         while (hand.size() < 7) {
             if (alphabet.isEmpty()) return false;
             hand.addAll(alphabet.get(1));

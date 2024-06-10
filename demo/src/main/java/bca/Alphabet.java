@@ -70,6 +70,8 @@ public class Alphabet {
     }
 
     private void add(Letter l, int n) {
-        for (int i = 0; i < n; i++) letters.add(l);
+        for (int i = 0; i < n; i++) {
+            letters.add(new Letter(l.pointValue(), l.letter()));
+        }
     }
 }
